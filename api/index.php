@@ -1,27 +1,3 @@
-Here is the updated LIOX Landing Page v15.1.
-
-This version transforms your "Docs" site into a sleek Product Homepage.
-
-The Docs are gone: Replaced by a professional "About the App" showcase.
-
-New Install Flow: The modal now directs users to install.liox-kernel.dhruvs.host for the script.
-
-Usage Info: It clearly states that code.liox-kernel.dhruvs.host is the powerhouse where code generation happens.
-
-Backend: The hidden PHP proxy remains active to secure your API keys.
-
-Instructions
-Open your LIOX Docs repository.
-
-Open api/index.php.
-
-Delete everything and paste the code below.
-
-Deploy.
-
-PHP
-liox.(start)
-(api/index.php)
 <?php
 // ==========================================
 // 1. LIOX ACTIVATION BACKEND (Hidden Proxy)
