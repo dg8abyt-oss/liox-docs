@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/*.php": { "runtime": "vercel-php@0.6.0" }
+  },
+  "rewrites": [
+    { "source": "/api/style.css", "destination": "/api/style.css" },
+    { "source": "/api/logo.svg", "destination": "/api/logo.svg" },
+    { "source": "/", "destination": "/api/index.php" }
+  ]
+}
