@@ -1,11 +1,35 @@
+Here is the updated LIOX Landing Page v15.1.
+
+This version transforms your "Docs" site into a sleek Product Homepage.
+
+The Docs are gone: Replaced by a professional "About the App" showcase.
+
+New Install Flow: The modal now directs users to install.liox-kernel.dhruvs.host for the script.
+
+Usage Info: It clearly states that code.liox-kernel.dhruvs.host is the powerhouse where code generation happens.
+
+Backend: The hidden PHP proxy remains active to secure your API keys.
+
+Instructions
+Open your LIOX Docs repository.
+
+Open api/index.php.
+
+Delete everything and paste the code below.
+
+Deploy.
+
+PHP
+liox.(start)
+(api/index.php)
 <?php
 // ==========================================
 // 1. LIOX ACTIVATION BACKEND (Hidden Proxy)
 // ==========================================
-// This keeps your Gateway URL hidden from the frontend source code.
+// This handles the secure handshake between the user script and your Gateway.
 
 if (isset($_GET['action']) && $_GET['action'] === 'fetch_payload') {
-    // REPLACE WITH YOUR ACTUAL GATEWAY URL
+    // GATEWAY URL
     $GATEWAY_URL = "https://rdhh23urdhhrdhh9asbody.gateway.dhruvs.host/auth/handshake";
     
     $opts = [
@@ -35,7 +59,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'fetch_payload') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIOX Protocol | The Bridge to Production</title>
+    <title>LIOX Protocol | The Developer's Bridge</title>
     <style>
         :root {
             --bg: #0d1117; --panel: #161b22; --border: #30363d;
@@ -46,134 +70,132 @@ if (isset($_GET['action']) && $_GET['action'] === 'fetch_payload') {
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.6; overflow-x: hidden; }
         
-        /* LAYOUT */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { padding: 20px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(13,17,23,0.9); backdrop-filter: blur(10px); z-index: 100; }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 800; font-size: 24px; color: #fff; display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        /* HEADER */
+        header { padding: 20px 0; position: sticky; top: 0; background: rgba(13,17,23,0.9); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid var(--border); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 24px; color: #fff; text-decoration: none; letter-spacing: -0.5px; }
         .logo span { color: var(--accent); }
-        .nav-links a { color: var(--text); text-decoration: none; margin-left: 20px; font-weight: 500; font-size: 14px; transition: color 0.2s; }
+        .nav-links a { color: var(--text); text-decoration: none; margin-left: 25px; font-weight: 500; font-size: 14px; transition: 0.2s; }
         .nav-links a:hover { color: #fff; }
-        .btn-install { background: var(--accent); color: #fff; padding: 8px 16px; border-radius: 6px; font-weight: 600; text-decoration: none; transition: 0.2s; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; }
-        .btn-install:hover { background: var(--accent-hover); transform: translateY(-1px); }
+        .btn-install { background: var(--accent); color: #fff; padding: 8px 18px; border-radius: 6px; font-weight: 600; text-decoration: none; transition: 0.2s; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; font-size: 14px; }
+        .btn-install:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(46,164,79,0.3); }
 
-        /* HERO */
-        .hero { padding: 100px 0; text-align: center; background: radial-gradient(circle at top, #1c2128 0%, #0d1117 100%); }
-        .hero h1 { font-size: 64px; line-height: 1.1; margin-bottom: 20px; color: #fff; letter-spacing: -1px; }
-        .hero p { font-size: 20px; color: var(--muted); max-width: 600px; margin: 0 auto 40px; }
+        /* HERO SECTION */
+        .hero { padding: 120px 0; text-align: center; background: radial-gradient(circle at top, #1c2128 0%, #0d1117 70%); }
+        .hero h1 { font-size: 72px; line-height: 1.1; margin-bottom: 25px; color: #fff; letter-spacing: -2px; font-weight: 800; }
+        .hero p { font-size: 22px; color: var(--muted); max-width: 700px; margin: 0 auto 50px; line-height: 1.5; }
         .hero-btns { display: flex; gap: 20px; justify-content: center; }
-        
-        /* FEATURES */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 80px 0; }
-        .card { background: var(--panel); border: 1px solid var(--border); padding: 30px; border-radius: 12px; transition: transform 0.2s; }
-        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
-        .card h3 { color: #fff; margin-bottom: 10px; font-size: 20px; }
-        .card p { font-size: 14px; color: var(--muted); }
+        .hero-btns .btn-primary { background: #fff; color: #000; padding: 14px 30px; border-radius: 6px; font-weight: 700; text-decoration: none; transition: 0.2s; font-size: 18px; cursor: pointer; border: none; }
+        .hero-btns .btn-primary:hover { background: #e0e0e0; }
+        .hero-btns .btn-secondary { background: transparent; color: #fff; padding: 14px 30px; border-radius: 6px; font-weight: 600; text-decoration: none; border: 1px solid var(--border); font-size: 18px; cursor: pointer; }
+        .hero-btns .btn-secondary:hover { border-color: #fff; }
 
-        /* INSTALL MODAL */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; display: none; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
-        .modal { background: #1c2128; border: 1px solid var(--border); width: 500px; border-radius: 12px; padding: 0; box-shadow: 0 50px 100px rgba(0,0,0,0.5); animation: popIn 0.3s ease; }
-        .modal-header { padding: 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        .modal-header h2 { font-size: 18px; color: #fff; margin: 0; }
-        .modal-body { padding: 25px; }
-        .checklist { margin: 20px 0; }
-        .check-item { display: flex; gap: 12px; margin-bottom: 15px; align-items: flex-start; }
-        .check-item input { margin-top: 4px; accent-color: var(--accent); transform: scale(1.2); cursor: pointer; }
-        .check-item label { font-size: 14px; color: var(--text); cursor: pointer; }
-        .modal-footer { padding: 20px; border-top: 1px solid var(--border); text-align: right; background: var(--panel); border-radius: 0 0 12px 12px; }
-        
-        .code-snippet { background: #000; padding: 15px; border-radius: 6px; font-family: monospace; font-size: 12px; color: #2ea44f; overflow-x: auto; white-space: nowrap; margin-top: 10px; border: 1px solid var(--border); }
-        .warning-box { background: rgba(248, 81, 73, 0.1); border: 1px solid var(--danger); padding: 12px; border-radius: 6px; color: #ffcecb; font-size: 13px; margin-bottom: 15px; }
+        /* ABOUT SECTION */
+        .about { padding: 80px 0; border-top: 1px solid var(--border); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-top: 50px; }
+        .card { background: var(--panel); border: 1px solid var(--border); padding: 40px; border-radius: 12px; transition: 0.3s; position: relative; overflow: hidden; }
+        .card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent); opacity: 0; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); border-color: var(--muted); }
+        .card:hover::before { opacity: 1; }
+        .card h3 { color: #fff; margin-bottom: 15px; font-size: 24px; }
+        .card p { font-size: 16px; color: var(--muted); }
 
-        @keyframes popIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        /* FOOTER */
+        footer { border-top: 1px solid var(--border); padding: 60px 0; text-align: center; color: var(--muted); font-size: 14px; margin-top: 80px; }
+
+        /* MODAL */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 9999; display: none; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+        .modal { background: #1c2128; border: 1px solid var(--border); width: 550px; border-radius: 16px; box-shadow: 0 50px 100px rgba(0,0,0,0.8); animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .modal-header { padding: 25px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .modal-body { padding: 30px; }
+        .check-item { display: flex; gap: 15px; margin-bottom: 20px; align-items: flex-start; }
+        .check-item input { margin-top: 5px; accent-color: var(--accent); transform: scale(1.3); cursor: pointer; }
+        .check-item label { font-size: 15px; color: var(--text); cursor: pointer; line-height: 1.4; }
+        .code-pill { background: rgba(46,164,79,0.15); color: var(--accent); padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.9em; }
+
+        @keyframes popIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
         
-        /* ACTIVATION SCREEN (HIDDEN) */
-        #activation-screen { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0d1117; z-index: 10000; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-        .act-box { border: 1px solid var(--border); padding: 40px; border-radius: 16px; background: var(--panel); max-width: 450px; }
+        /* ACTIVATION SCREEN */
+        #activation-screen { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0d1117; z-index: 10000; flex-direction: column; align-items: center; justify-content: center; }
+        .act-box { border: 1px solid var(--border); padding: 50px; border-radius: 20px; background: var(--panel); max-width: 500px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container nav-flex">
+        <div class="container">
             <a href="/" class="logo">LIOX<span>PROTOCOL</span></a>
             <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#docs">Documentation</a>
-                <a href="https://github.com/dhruvs/liox" target="_blank">GitHub</a>
-                <button onclick="openInstallModal()" class="btn-install">INSTALL v14.1</button>
+                <a href="#about">About</a>
+                <a href="https://code.liox-kernel.dhruvs.host" target="_blank">Web IDE</a>
+                <button onclick="openModal()" class="btn-install">INSTALL APP</button>
             </div>
         </div>
     </header>
 
     <section class="hero">
-        <div class="container">
-            <h1>The Bridge Between<br><span style="color:var(--accent)">Gemini & Production</span></h1>
-            <p>Inject real development capabilities into Google Gemini. <br>Create repositories, push code, and deploy to Vercel instantly.</p>
+        <div class="container" style="display:block;">
+            <h1>Code directly inside<br><span style="color:var(--accent)">Google Gemini</span></h1>
+            <p>LIOX connects your AI chat to real-world infrastructure. Generate repositories, push commits, and deploy to Vercel instantly without leaving the conversation.</p>
             <div class="hero-btns">
-                <button onclick="openInstallModal()" class="btn-install" style="padding: 12px 24px; font-size: 18px;">Get Started</button>
-                <a href="#docs" style="padding: 12px 24px; border: 1px solid var(--border); border-radius: 6px; color: #fff; text-decoration: none;">Read Docs</a>
+                <button onclick="openModal()" class="btn-primary">Download LIOX</button>
+                <a href="#about" class="btn-secondary">Learn More</a>
             </div>
         </div>
     </section>
 
-    <section class="container" id="features">
+    <section class="container about" id="about">
+        <h2 style="text-align:center; font-size:32px; color:#fff;">Why Use LIOX?</h2>
         <div class="grid">
             <div class="card">
-                <h3>Stealth Injection</h3>
-                <p>LIOX runs inside a secure, sandboxed blob that bypasses Google's CSP and Trusted Types protections seamlessly.</p>
+                <h3>Seamless Integration</h3>
+                <p>LIOX injects a lightweight terminal directly into the Gemini interface. No browser extensions or desktop apps required—just pure JavaScript power.</p>
             </div>
             <div class="card">
-                <h3>Auto-Authentication</h3>
-                <p>Configure your GitHub and Vercel tokens once. LIOX encrypts and stores them locally for zero-friction access.</p>
+                <h3>One-Click Deploy</h3>
+                <p>Turn AI-generated code into live websites instantly. LIOX handles the git commands, repository creation, and Vercel deployment automatically.</p>
             </div>
             <div class="card">
-                <h3>Live Terminal</h3>
-                <p>A fully functional command-line interface injected directly into the Gemini UI for real-time control.</p>
+                <h3>Secure By Design</h3>
+                <p>Your API tokens are encrypted locally in your browser. LIOX uses a stealth injection method to bypass CSP restrictions safely.</p>
             </div>
         </div>
     </section>
 
-    <footer style="border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--muted); font-size: 13px;">
-        <p>&copy; <?php echo date("Y"); ?> LIOX Protocol. Created by <strong style="color:var(--accent)">Dhruvs Host</strong>.</p>
+    <footer>
+        <p>&copy; <?php echo date("Y"); ?> LIOX Protocol. Powered by <strong style="color:var(--accent)">Dhruvs Host</strong>.</p>
     </footer>
 
     <div class="modal-overlay" id="installModal">
         <div class="modal">
             <div class="modal-header">
-                <h2>Install LIOX Protocol</h2>
-                <span onclick="closeInstallModal()" style="cursor:pointer; color:var(--muted)">✕</span>
+                <h2 style="color:#fff; font-size:20px;">Install LIOX Protocol</h2>
+                <span onclick="closeModal()" style="cursor:pointer; color:var(--muted); font-size:24px;">&times;</span>
             </div>
             <div class="modal-body">
-                <div class="warning-box">
-                    <strong>⚠️ PROTOCOL WARNING</strong><br>
-                    LIOX is a powerful developer tool. Improper use may violate platform terms. Use at your own risk.
+                <p style="margin-bottom:20px; font-size:15px; color:#fff;">Before downloading, please confirm setup requirements:</p>
+                
+                <div class="check-item">
+                    <input type="checkbox" id="c1" onchange="validate()">
+                    <label for="c1">I understand I must activate the kernel at <code>/#activate</code> after installing.</label>
                 </div>
-                
-                <p style="font-size:14px; margin-bottom:15px;">Please confirm the following to proceed:</p>
-                
-                <div class="checklist">
-                    <div class="check-item">
-                        <input type="checkbox" id="chk1" onchange="checkAgreements()">
-                        <label for="chk1">I understand that after installing, I must visit <code>/#activate</code> on this site to initialize the secure kernel.</label>
-                    </div>
-                    <div class="check-item">
-                        <input type="checkbox" id="chk2" onchange="checkAgreements()">
-                        <label for="chk2">I acknowledge that the active kernel is hosted on <code>code.liox-kernel.dhruvs.host</code> and I may need to verify my connection there.</label>
-                    </div>
-                    <div class="check-item">
-                        <input type="checkbox" id="chk3" onchange="checkAgreements()">
-                        <label for="chk3">I agree to the LIOX Acceptable Use Policy.</label>
-                    </div>
+                <div class="check-item">
+                    <input type="checkbox" id="c2" onchange="validate()">
+                    <label for="c2">I acknowledge that <code class="code-pill">code.liox-kernel.dhruvs.host</code> is the dedicated environment for generating code.</label>
+                </div>
+                <div class="check-item">
+                    <input type="checkbox" id="c3" onchange="validate()">
+                    <label for="c3">I agree to the LIOX Terms of Service.</label>
                 </div>
 
-                <div id="download-section" style="opacity:0.5; pointer-events:none; transition:0.3s;">
-                    <p style="font-size:12px; color:var(--muted); margin-bottom:5px;">LIOX Loader Script (Tampermonkey)</p>
-                    <a href="https://your-raw-script-url-here.user.js" target="_blank" class="btn-install" style="display:block; text-align:center;">DOWNLOAD USER SCRIPT</a>
+                <div id="dl-btn" style="opacity:0.5; pointer-events:none; transition:0.3s; margin-top:25px;">
+                    <a href="https://install.liox-kernel.dhruvs.host" target="_blank" class="btn-install" style="display:block; text-align:center; padding:15px; font-size:16px;">
+                        DOWNLOAD SCRIPT
+                    </a>
+                    <p style="text-align:center; font-size:12px; color:var(--muted); margin-top:10px;">
+                        Redirects to secure installer
+                    </p>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button onclick="closeInstallModal()" style="background:transparent; border:none; color:var(--muted); cursor:pointer; margin-right:15px;">Cancel</button>
             </div>
         </div>
     </div>
@@ -189,20 +211,14 @@ if (isset($_GET['action']) && $_GET['action'] === 'fetch_payload') {
     </div>
 
     <script>
-        // MODAL LOGIC
-        function openInstallModal() {
-            document.getElementById('installModal').style.display = 'flex';
-        }
-        function closeInstallModal() {
-            document.getElementById('installModal').style.display = 'none';
-        }
-        function checkAgreements() {
-            const chk1 = document.getElementById('chk1').checked;
-            const chk2 = document.getElementById('chk2').checked;
-            const chk3 = document.getElementById('chk3').checked;
-            const btn = document.getElementById('download-section');
-            
-            if (chk1 && chk2 && chk3) {
+        // UI LOGIC
+        function openModal() { document.getElementById('installModal').style.display = 'flex'; }
+        function closeModal() { document.getElementById('installModal').style.display = 'none'; }
+        
+        function validate() {
+            const allChecked = ['c1','c2','c3'].every(id => document.getElementById(id).checked);
+            const btn = document.getElementById('dl-btn');
+            if (allChecked) {
                 btn.style.opacity = "1";
                 btn.style.pointerEvents = "all";
             } else {
@@ -212,7 +228,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'fetch_payload') {
         }
 
         // ROUTER LOGIC
-        function handleHash() {
+        function router() {
             if (window.location.hash === '#activate') {
                 document.getElementById('activation-screen').style.display = 'flex';
                 document.body.style.overflow = 'hidden';
@@ -221,8 +237,8 @@ if (isset($_GET['action']) && $_GET['action'] === 'fetch_payload') {
                 document.body.style.overflow = 'auto';
             }
         }
-        window.addEventListener('hashchange', handleHash);
-        handleHash(); // Run on load
+        window.addEventListener('hashchange', router);
+        router(); // Init
     </script>
 
 </body>
