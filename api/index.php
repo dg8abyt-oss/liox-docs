@@ -2,8 +2,6 @@
 // ==========================================
 // 1. LIOX ACTIVATION BACKEND (Hidden Proxy)
 // ==========================================
-// This handles the secure handshake between the user script and your Gateway.
-
 if (isset($_GET['action']) && $_GET['action'] === 'fetch_payload') {
     // GATEWAY URL
     $GATEWAY_URL = "https://rdhh23urdhhrdhh9asbody.gateway.dhruvs.host/auth/handshake";
@@ -35,7 +33,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'fetch_payload') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIOX Protocol | The Developer's Bridge</title>
+    <title>LIOX Protocol | Custom Gemini Environment</title>
     <style>
         :root {
             --bg: #0d1117; --panel: #161b22; --border: #30363d;
@@ -103,7 +101,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'fetch_payload') {
             <a href="/" class="logo">LIOX<span>PROTOCOL</span></a>
             <div class="nav-links">
                 <a href="#about">About</a>
-                <a href="https://code.liox-kernel.dhruvs.host" target="_blank">Web IDE</a>
+                <a href="https://gemini.google.com" target="_blank">Launch Gem</a>
                 <button onclick="openModal()" class="btn-install">INSTALL APP</button>
             </div>
         </div>
@@ -111,11 +109,11 @@ if (isset($_GET['action']) && $_GET['action'] === 'fetch_payload') {
 
     <section class="hero">
         <div class="container" style="display:block;">
-            <h1>Code directly inside<br><span style="color:var(--accent)">Google Gemini</span></h1>
-            <p>LIOX connects your AI chat to real-world infrastructure. Generate repositories, push commits, and deploy to Vercel instantly without leaving the conversation.</p>
+            <h1>Supercharge your<br><span style="color:var(--accent)">Custom Gemini Gem</span></h1>
+            <p>LIOX connects your custom Gemini Gem to real-world infrastructure. Generate repositories, push commits, and deploy to Vercel instantly.</p>
             <div class="hero-btns">
                 <button onclick="openModal()" class="btn-primary">Download LIOX</button>
-                <a href="#about" class="btn-secondary">Learn More</a>
+                <a href="https://gemini.google.com" target="_blank" class="btn-secondary">Open Gem</a>
             </div>
         </div>
     </section>
@@ -124,12 +122,12 @@ if (isset($_GET['action']) && $_GET['action'] === 'fetch_payload') {
         <h2 style="text-align:center; font-size:32px; color:#fff;">Why Use LIOX?</h2>
         <div class="grid">
             <div class="card">
-                <h3>Seamless Integration</h3>
-                <p>LIOX injects a lightweight terminal directly into the Gemini interface. No browser extensions or desktop apps required—just pure JavaScript power.</p>
+                <h3>Custom Gem Integration</h3>
+                <p>LIOX injects a lightweight terminal directly into your custom Gemini Gem interface. No browser extensions or desktop apps required.</p>
             </div>
             <div class="card">
                 <h3>One-Click Deploy</h3>
-                <p>Turn AI-generated code into live websites instantly. LIOX handles the git commands, repository creation, and Vercel deployment automatically.</p>
+                <p>Turn AI-generated code into live websites instantly. LIOX handles the git commands and Vercel deployment automatically.</p>
             </div>
             <div class="card">
                 <h3>Secure By Design</h3>
@@ -139,7 +137,13 @@ if (isset($_GET['action']) && $_GET['action'] === 'fetch_payload') {
     </section>
 
     <footer>
-        <p>&copy; <?php echo date("Y"); ?> LIOX Protocol. Powered by <strong style="color:var(--accent)">Dhruvs Host</strong>.</p>
+        <p>
+            &copy; <?php echo date("Y"); ?> LIOX Protocol. Powered by <strong style="color:var(--accent)">Dhruvs Host</strong>.
+            <br><br>
+            <a href="#activate" style="color: #30363d; text-decoration: none; font-size: 11px; transition: 0.2s;" onmouseover="this.style.color='#2ea44f'" onmouseout="this.style.color='#30363d'">
+                [ Initialize Secure Kernel ]
+            </a>
+        </p>
     </footer>
 
     <div class="modal-overlay" id="installModal">
@@ -157,7 +161,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'fetch_payload') {
                 </div>
                 <div class="check-item">
                     <input type="checkbox" id="c2" onchange="validate()">
-                    <label for="c2">I acknowledge that <code class="code-pill">code.liox-kernel.dhruvs.host</code> is the dedicated environment for generating code.</label>
+                    <label for="c2">I acknowledge that this tool is designed for the <code class="code-pill">LIOX Custom Gem</code>.</label>
                 </div>
                 <div class="check-item">
                     <input type="checkbox" id="c3" onchange="validate()">
