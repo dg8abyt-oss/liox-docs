@@ -108,7 +108,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'fetch_payload') {
             </a>
             <div class="nav-links">
                 <a href="#about">About</a>
-                <a href="https://gemini.google.com" target="_blank">Launch Gem</a>
+                <a href="https://gemini.google.com/gem/1_jPTb3PQ1phZgZE5jhU3Yb-j42AWIP-F?usp=sharing" target="_blank">Launch Gem</a>
                 <button onclick="openModal()" class="btn-install">INSTALL APP</button>
             </div>
         </div>
